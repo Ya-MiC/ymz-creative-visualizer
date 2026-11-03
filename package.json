@@ -1,0 +1,27 @@
+{
+  "name": "ymz-creative-visualizer",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "晏銘湛箴 · 你的創意視覺化呈現 — 本地優先、Markdown 驅動的像素風 AI 視頻創作工作臺",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-opener": "^2",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vue-tsc": "^2.2.10"
+  },
+  "packageManager": "pnpm@11.21.0",
+  "license": "MIT"
+}

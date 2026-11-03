@@ -1,0 +1,27 @@
+[package]
+name = "ymz-creative-visualizer"
+version = "0.0.1"
+description = "晏銘湛箴 · 你的創意視覺化呈現 — 本地優先、Markdown 驅動的像素風 AI 視頻創作工作臺"
+authors = ["Ya-MiC <141537476+Ya-MiC@users.noreply.github.com>"]
+edition = "2021"
+license = "MIT"
+
+[lib]
+name = "ymz_creative_visualizer_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true

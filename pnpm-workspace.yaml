@@ -1,2 +1,4 @@
+# 僅允許 esbuild 執行安裝後建置腳本（提供原生二進位）
+# 其他依賴皆不執行 install script，避免供應鏈風險
 allowBuilds:
-  esbuild: set this to true or false
+  esbuild: true

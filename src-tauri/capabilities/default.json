@@ -1,0 +1,27 @@
+{
+  "identifier": "default",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:path::read",
+    "core:path::write",
+    "core:window::close",
+    "core:window::hide",
+    "core:window::show",
+    "core:window::create",
+    "core:window::setTitle",
+    "core:window::setResizable",
+    "core:window::setMinSize",
+    "core:window::setMaxSize",
+    "core:window::setAlwaysOnTop",
+    "core:window::setFocus",
+    "core:window::setIcon",
+    "core:app::show",
+    "core:app::hide",
+    "core:app::getCurrent",
+    "core:app::windows",
+    "plugin:opener::open"
+  ],
+  "capabilities": []
+}

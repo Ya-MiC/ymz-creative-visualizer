@@ -15,13 +15,25 @@ fn get_status(state: State<'_, AppState>) -> serde_json::Value {
 }
 
 #[allow(dead_code)]
-fn startup(_app: AppHandle) {
-    let _state = std::sync::Arc::new(std::sync::Mutex::new(false));
-    drop(_state.lock().unwrap());
+fn startup(app: AppHandle) {
+    std::thread::spawn(move || {
+        let state = app.state::<AppState>();
+        drop(state.scanning.lock().unwrap());
+    });
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    // Tauri 運行時將在 build script 正確設定後啟用
-    // 骨架階段僅編譯符號檢查
+    tauri::Builder::default()
+        .plugin(tauri_plugin_opener::init())
+        .manage(AppState {
+            scanning: std::sync::Mutex::new(false),
+        })
+        .invoke_handler(tauri::generate_handler![get_status])
+        .setup(|app| {
+            startup(app.handle().clone());
+            Ok(())
+        })
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
 }
